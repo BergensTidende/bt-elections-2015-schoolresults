@@ -42,7 +42,7 @@ module.exports = {
 		  	//response.sum_change_real_parties = _.sum(partygroups[0], 'share_change');
 		  	var others = {
 		  		partycode: 'Andre',
-		  		share: _.sum(partygroups[1], 'share'),
+		  		share: +(_.sum(partygroups[1], 'share')).toFixed(1),
 		  		share_change: +(0 - _.sum(partygroups[0], 'share_change')).toFixed(1)
 		  	};
 
