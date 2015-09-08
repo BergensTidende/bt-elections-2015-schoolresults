@@ -9,6 +9,8 @@ app.use(express.static(__dirname + '/public'));
 
 
 app.get('/', function(req, res) {
+	res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET');
 	var results = nsd.getResults(req.query.url, function(data) {
 		res.send(data);
 	});
