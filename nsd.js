@@ -26,20 +26,20 @@ module.exports = {
 
 		  	$table.find('tr').each(function(i, elem) {
 		  		var res = {}
-		  		res.party_code = $html(this).find('th').text().toUpperCase();
+		  		res.partycode = $html(this).find('th').text().toUpperCase();
 		  		res.share = +$html(this).find('td').eq(1).text();
 		  		res.share_change = +$html(this).find('td').eq(2).text();
 		  		allresults.push(res);
 		  	});
 
 		  	var partygroups = _.partition(allresults, function(r) {
-						  return _.includes(real_parties, r.party_code);
+						  return _.includes(real_parties, r.partycode);
 						});
 
 		  	response.results = partygroups[0];
 
 		  	var others = {
-		  		party_code: 'Andre',
+		  		partycode: 'Andre',
 		  		share: _.sum(partygroups[1], 'share'),
 		  		share_change: null //_.sum(partygroups[1], 'share_change')
 		  	};
