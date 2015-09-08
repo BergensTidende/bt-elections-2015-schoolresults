@@ -43,7 +43,7 @@ module.exports = {
 		  	var others = {
 		  		partycode: 'Andre',
 		  		share: _.sum(partygroups[1], 'share'),
-		  		share_change: 0 - _.sum(partygroups[0], 'share_change')
+		  		share_change: +(0 - _.sum(partygroups[0], 'share_change')).toFixed(1)
 		  	};
 
 
