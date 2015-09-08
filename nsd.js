@@ -32,18 +32,18 @@ module.exports = {
 		  		allresults.push(res);
 		  	});
 
-		  	
 
 		  	var partygroups = _.partition(allresults, function(r) {
 						  return _.includes(real_parties, r.partycode);
 						});
 
 		  	response.results = partygroups[0];
-
+		  	response.others = partygroups[1];
+		  	//response.sum_change_real_parties = _.sum(partygroups[0], 'share_change');
 		  	var others = {
 		  		partycode: 'Andre',
 		  		share: _.sum(partygroups[1], 'share'),
-		  		share_change: null //_.sum(partygroups[1], 'share_change')
+		  		share_change: 0 - _.sum(partygroups[0], 'share_change')
 		  	};
 
 
