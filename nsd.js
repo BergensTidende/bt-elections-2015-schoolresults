@@ -19,6 +19,7 @@ module.exports = {
 		  	var $table = $html('table.result tbody');
 
 		  	var allresults = [];
+		  	var results = []
 
 		  	var real_parties = ['RØDT', 'SV', 'A', 'SP', 'MDG', 'KRF', 'V', 'H', 'FRP'];
 
@@ -30,9 +31,20 @@ module.exports = {
 		  		allresults.push(res);
 		  	});
 
-		  	var results = allresults;
+		  	var partygroups = _.partition(allresults, function(r) {
+						  return _.includes(real_parties, r.party_code);
+						});
 
-		  	console.log(results)
+		  	results = partygroups[0];
+
+		  	var others = {
+		  		party_code: 'Andre',
+		  		share: _.sum(partygroups[1], 'share'),
+		  		share_change: null //_.sum(partygroups[1], 'share_change')
+		  	};
+
+
+		  	results.push(others);
 
 		    cb(results);
 		  } else {
