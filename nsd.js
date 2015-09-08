@@ -19,7 +19,16 @@ module.exports = {
 		  	var $table = $html('table.result tbody');
 
 		  	var allresults = [];
-		  	var results = []
+		  	var response = {};
+
+		  	$html('table.zebra').each(function(i, elem) {
+		  		if ($html(this).find('caption').text() == 'Valginfo') {
+		  			response.skole = $html(this).find('tbody tr td').eq(1).text();
+		  			response.kommune = $html(this).find('tbody tr td').eq(2).text().trim();
+		  			response.fylke = $html(this).find('tbody tr td').eq(3).text().trim();
+		  		}
+		  	});
+
 
 		  	var real_parties = ['RØDT', 'SV', 'A', 'SP', 'MDG', 'KRF', 'V', 'H', 'FRP'];
 
@@ -35,7 +44,7 @@ module.exports = {
 						  return _.includes(real_parties, r.party_code);
 						});
 
-		  	results = partygroups[0];
+		  	response.results = partygroups[0];
 
 		  	var others = {
 		  		party_code: 'Andre',
@@ -44,9 +53,9 @@ module.exports = {
 		  	};
 
 
-		  	results.push(others);
+		  	response.results.push(others);
 
-		    cb(results);
+		    cb(response);
 		  } else {
 		  	console.log(error)
 		  }
