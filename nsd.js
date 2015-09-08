@@ -32,6 +32,8 @@ module.exports = {
 		  		allresults.push(res);
 		  	});
 
+		  	
+
 		  	var partygroups = _.partition(allresults, function(r) {
 						  return _.includes(real_parties, r.partycode);
 						});
