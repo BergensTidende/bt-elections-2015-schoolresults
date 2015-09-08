@@ -21,14 +21,6 @@ module.exports = {
 		  	var allresults = [];
 		  	var response = {};
 		  	response.title = $html('h1').eq(0).text().replace('Skolevalgresultater for ', '').trim();
-		/*  	$html('table.zebra').each(function(i, elem) {
-		  		if ($html(this).find('caption').text() == 'Valginfo') {
-		  			response.skole = $html(this).find('tbody tr td').eq(1).text();
-		  			response.kommune = $html(this).find('tbody tr td').eq(2).text().trim();
-		  			response.fylke = $html(this).find('tbody tr td').eq(3).text().trim();
-		  		}
-		  	});
-*/
 
 		  	var real_parties = ['RØDT', 'SV', 'A', 'SP', 'MDG', 'KRF', 'V', 'H', 'FRP'];
 
