@@ -20,7 +20,7 @@ module.exports = {
 
 		  	var allresults = [];
 		  	var response = {};
-		  	response.title = $html('h1').eq(0).text().replace('Skolevalgresultater for ', '').trim();
+		  	response.title = $html('h1').eq(0).text().replace('Skolevalgresultater for ', '').replace('Skolevalgresultat - ', '').trim();
 
 		  	var real_parties = ['RØDT', 'SV', 'A', 'SP', 'MDG', 'KRF', 'V', 'H', 'FRP'];
 
