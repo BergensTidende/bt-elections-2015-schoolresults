@@ -1,5 +1,7 @@
 # BT Elections 2015 School results fetcher
 
+Fetches school election results from [NSD Samfunnsveven  - Skolevalg](http://samfunnsveven.no/data/skolevalg/) and returns them as json.
+
 Work in progress!
 
 #Installation:
